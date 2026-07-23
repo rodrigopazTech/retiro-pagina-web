@@ -1,0 +1,140 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { images } from '../data/assets';
+import { whatsappUrl } from '../lib/whatsapp';
+---
+
+<MainLayout title="Inicio" description="Kairos Corazón Vicentino: comunidad, espiritualidad y servicio." bodyClass="home-page">
+  <section class="hero home-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="chip"><span class="material-symbols-outlined">favorite</span> Movimiento Juvenil</span>
+        <h1>Un espacio para encontrarte, crecer y vivir tu fe</h1>
+        <p>Kairos Corazón Vicentino es un movimiento juvenil donde caminamos juntos en comunidad, espiritualidad y servicio.</p>
+        <div class="hero-actions">
+          <a class="button" href={whatsappUrl('retiro')} target="_blank" rel="noreferrer">
+            <span class="material-symbols-outlined">chat</span>
+            Quiero asistir a un retiro
+          </a>
+          <a class="button button-outline" href="/movimiento">Conocer el movimiento</a>
+        </div>
+      </div>
+      <div class="hero-logo-wrap">
+        <div class="hero-logo-glow"></div>
+        <div class="hero-logo-card">
+          <img src={images.heroLogo} alt="Logo Kairos Corazón Vicentino" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section help-section">
+    <div class="container">
+      <SectionTitle title="¿Cómo podemos ayudarte?" text="Selecciona una opción y te acompañamos en tu camino." align="center" />
+      <div class="bento-grid">
+        <a class="bento-card large" href={whatsappUrl('retiro')} target="_blank" rel="noreferrer"><span class="material-symbols-outlined icon gold">church</span><h3>Quiero asistir a un retiro</h3><p>Vive una experiencia transformadora de encuentro personal.</p><span class="material-symbols-outlined bento-card__arrow" aria-hidden="true">arrow_forward</span></a>
+        <a class="bento-card large" href={whatsappUrl('integracion')} target="_blank" rel="noreferrer"><span class="material-symbols-outlined icon">group</span><h3>Quiero integrarme al movimiento</h3><p>Forma parte de nuestra comunidad y crece con nosotros.</p><span class="material-symbols-outlined bento-card__arrow" aria-hidden="true">arrow_forward</span></a>
+        <a class="bento-card small" href={whatsappUrl('contacto')} target="_blank" rel="noreferrer"><span class="material-symbols-outlined icon blue">help</span><h3>Tengo una duda</h3><p>Contáctanos directamente.</p><span class="material-symbols-outlined bento-card__arrow" aria-hidden="true">arrow_forward</span></a>
+        <a class="bento-card small" href={whatsappUrl('vocacional')} target="_blank" rel="noreferrer"><span class="material-symbols-outlined icon gold">auto_awesome</span><h3>Inquietud vocacional</h3><p>Acompañamiento en tu discernimiento.</p><span class="material-symbols-outlined bento-card__arrow" aria-hidden="true">arrow_forward</span></a>
+        <a class="bento-card small" href={whatsappUrl('padres')} target="_blank" rel="noreferrer"><span class="material-symbols-outlined icon">family_restroom</span><h3>Soy padre de familia</h3><p>Información para padres.</p><span class="material-symbols-outlined bento-card__arrow" aria-hidden="true">arrow_forward</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white home-kairos-section">
+    <div class="container split">
+      <div class="image-frame">
+        <img src={images.community} alt="Jóvenes compartiendo en comunidad" loading="lazy" decoding="async" />
+      </div>
+      <div>
+        <h2>¿Qué es Kairos?</h2>
+        <p class="muted quote" style="margin-top: 24px;">"Somos un movimiento juvenil que busca acompañar a los jóvenes en su encuentro con Dios, formando comunidad, servicio y crecimiento espiritual."</p>
+        <div class="feature-grid">
+          <div class="feature"><span class="material-symbols-outlined icon">groups</span> Comunidad</div>
+          <div class="feature"><span class="material-symbols-outlined icon gold">auto_stories</span> Espiritualidad</div>
+          <div class="feature"><span class="material-symbols-outlined icon blue">volunteer_activism</span> Servicio</div>
+          <div class="feature"><span class="material-symbols-outlined icon">person_celebrate</span> Acompañamiento</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-event-section">
+    <div class="container">
+      <div class="event-banner">
+        <div class="event-content">
+          <span class="eyebrow light">Próximo evento</span>
+          <h2>Retiro de Jóvenes</h2>
+          <div class="event-meta">
+            <div><span>Fecha</span><p>Diciembre</p></div>
+            <div><span>Lugar</span><p>Xochimilco, CDMX</p></div>
+            <div><span>Edad</span><p>18 a 30 años</p></div>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-gold" href="/registro">Registrarme</a>
+            <a class="button button-teal" href={whatsappUrl('retiro')} target="_blank" rel="noreferrer">Más información</a>
+          </div>
+        </div>
+        <div class="event-image" style={`background-image: url('${images.homeEvent}')`}></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white home-testimonials-section">
+    <div class="container">
+      <SectionTitle title="Lo que otros han vivido" align="center" />
+      <div class="cards testimonial-cards mobile-carousel" role="region" aria-label="Testimonios de la comunidad">
+        <article class="card testimonial-card">
+          <span class="material-symbols-outlined quote-mark">format_quote</span>
+          <p class="quote">"Kairos cambió mi perspectiva de la fe. Encontré una familia donde puedo ser yo misma sin juzgarme y donde Dios se siente real."</p>
+          <div class="testimonial-author">
+            <img src={images.testimonialGreeting} alt="Ana Sofía" loading="lazy" decoding="async" />
+            <div><strong>Ana Sofía</strong><span>21 años, Estudiante</span></div>
+          </div>
+        </article>
+        <article class="card testimonial-card">
+          <span class="material-symbols-outlined quote-mark">format_quote</span>
+          <p class="quote">"El retiro fue el momento donde reconecté con mi propósito. No es solo religión, es vida compartida con amigos de verdad."</p>
+          <div class="testimonial-author">
+            <img src={images.testimonialFriends} alt="Diego R." loading="lazy" decoding="async" />
+            <div><strong>Diego R.</strong><span>24 años, Ingeniero</span></div>
+          </div>
+        </article>
+        <article class="card testimonial-card">
+          <span class="material-symbols-outlined quote-mark">format_quote</span>
+          <p class="quote">"Como madre, ver a mi hijo regresar con una luz diferente y encontrar una comunidad tan sana ha sido la mayor bendición."</p>
+          <div class="testimonial-author">
+            <img src={images.testimonialGabriela} alt="María Elena" loading="lazy" decoding="async" />
+            <div><strong>María Elena</strong><span>Madre de familia</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gallery-section">
+    <div class="container">
+      <SectionTitle title="Vive la experiencia" align="center" />
+      <div class="experience-gallery mobile-carousel" role="region" aria-label="Galería de experiencias">
+        <div class="gallery-item gallery-item-large"><img src={images.galleryCommunity} alt="Comunidad de jóvenes durante el retiro" loading="lazy" decoding="async" /></div>
+        <div class="gallery-item"><img src={images.galleryYoungMen} alt="Jóvenes conviviendo durante el retiro" loading="lazy" decoding="async" /></div>
+        <div class="gallery-item"><img src={images.galleryFriends} alt="Participantes compartiendo en comunidad" loading="lazy" decoding="async" /></div>
+        <div class="gallery-item gallery-item-wide"><img src={images.galleryDynamics} alt="Dinámica grupal durante el retiro" loading="lazy" decoding="async" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2>¿Listo para dar el siguiente paso?</h2>
+      <div class="final-cta-actions">
+        <a class="button button-gold" href={whatsappUrl('general')} target="_blank" rel="noreferrer">
+          <span class="material-symbols-outlined">chat</span>
+          Hablar por WhatsApp
+        </a>
+        <a class="button final-cta-outline" href="/registro">Registrarme al retiro</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

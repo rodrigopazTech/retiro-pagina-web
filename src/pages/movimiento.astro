@@ -1,0 +1,161 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { images } from '../data/assets';
+---
+
+<MainLayout title="Sobre el Movimiento" description="Conoce la identidad, historia y espiritualidad de Kairos Corazón Vicentino." bodyClass="movement-default-page">
+    <section class="movement-hero">
+      <div class="movement-hero__image" style={`background-image: url('${images.movementHero}')`}></div>
+      <div class="movement-hero__gradient"></div>
+      <div class="movement-hero__content">
+        <h1>Sobre el Movimiento</h1>
+        <p>Una comunidad juvenil que vive la fe a través de la amistad, el servicio y el encuentro con Dios.</p>
+      </div>
+    </section>
+
+    <section class="approved-section">
+      <div class="approved-container movement-grid">
+        <div class="tonal-card rounded-xl overflow-hidden aspect-video">
+          <img class="w-full h-full object-cover" src={images.movementMeeting} alt="Jóvenes reunidos en comunidad" width="1600" height="953" loading="lazy" decoding="async" />
+        </div>
+        <div class="movement-copy">
+          <span class="movement-essence-chip">Nuestra Esencia</span>
+          <h2>¿Quiénes somos?</h2>
+          <p>Kairos Corazón Vicentino es un movimiento juvenil que busca acompañar a los jóvenes en su camino espiritual a través de comunidad, servicio y encuentro con Dios. Nos definimos como un espacio seguro donde cada joven puede encontrar su propósito mientras sirve a los más necesitados.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section bg-surface-container-low">
+      <div class="approved-container">
+        <div class="approved-title">
+          <h2>Nuestra Historia</h2>
+          <div class="approved-title__line"></div>
+        </div>
+        <div class="timeline">
+          <div class="timeline__line"></div>
+          <div class="timeline__items">
+            <div class="timeline__item">
+              <div class="timeline__content">
+                <span class="timeline__date">Diciembre 2019</span>
+                <h4>1° retiro</h4>
+                <p>Primer retiro de Kairos Corazón Vicentino.</p>
+              </div>
+              <div class="timeline__dot"></div>
+              <div></div>
+            </div>
+            <div class="timeline__item">
+              <div></div>
+              <div class="timeline__dot"></div>
+              <div class="timeline__content">
+                <span class="timeline__date">Diciembre 2023</span>
+                <h4>2° retiro</h4>
+                <p>La experiencia vuelve a reunir a jóvenes en comunidad y servicio.</p>
+              </div>
+            </div>
+            <div class="timeline__item">
+              <div class="timeline__content">
+                <span class="timeline__date">Junio 2026</span>
+                <h4>3° retiro</h4>
+                <p>Nuevo encuentro para seguir caminando en fe, comunidad y espiritualidad vicentina.</p>
+              </div>
+              <div class="timeline__dot"></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section">
+      <div class="approved-container">
+        <div class="approved-title">
+          <h2>Nuestros Valores</h2>
+          <div class="approved-title__line"></div>
+        </div>
+        <div class="value-grid">
+          <article class="value-card">
+            <div class="value-card__icon bg-secondary-fixed text-on-secondary-fixed"><span class="material-symbols-outlined text-4xl">wb_sunny</span></div>
+            <h3>Esperanza</h3>
+            <p>Creemos en un futuro brillante para cada joven, fundamentado en la alegría del Evangelio.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-card__icon bg-tertiary-fixed text-on-tertiary-container"><span class="material-symbols-outlined text-4xl">groups</span></div>
+            <h3>Comunidad</h3>
+            <p>Ningún camino se recorre solo; nos sostenemos mutuamente como una gran familia.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-card__icon bg-primary-fixed text-primary"><span class="material-symbols-outlined text-4xl">volunteer_activism</span></div>
+            <h3>Espiritualidad</h3>
+            <p>Un encuentro personal y transformador con Dios a través del silencio y el servicio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section vicentine-section">
+      <div class="approved-container movement-grid">
+        <div>
+          <h2>Espiritualidad Vicentina</h2>
+          <p>Nuestra espiritualidad se centra en el carisma de San Vicente de Paúl: ver a Cristo en los pobres y servirle en ellos. No es solo oración, es acción transformadora.</p>
+          <ul class="vicentine-list">
+            <li><span class="material-symbols-outlined">check_circle</span><span>Servicio directo y afectivo a los vulnerables.</span></li>
+            <li><span class="material-symbols-outlined">check_circle</span><span>Sencillez y humildad como forma de vida.</span></li>
+            <li><span class="material-symbols-outlined">check_circle</span><span>Oración centrada en la misión y el envío.</span></li>
+          </ul>
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-2xl border border-white/20">
+          <img class="image-rounded" src={images.vicentine} alt="Equipo de servicio del retiro" width="1600" height="953" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section">
+      <div class="approved-container">
+        <div class="approved-title">
+          <h2>Nuestro Equipo</h2>
+          <p>Las personas que hacen posible esta misión</p>
+          <div class="approved-title__line"></div>
+        </div>
+        <div class="team-grid" aria-label="Integrantes del equipo">
+          <article class="team-card">
+            <img class="team-card__photo" src={images.teamServando} alt="P. Servando Sánchez" width="112" height="112" loading="lazy" decoding="async" />
+            <h4>P. Servando Sánchez</h4>
+            <p>Asesor espiritual</p>
+          </article>
+          <article class="team-card">
+            <img class="team-card__photo" src={images.teamRoberto} alt="Roberto Lagos" width="112" height="112" loading="lazy" decoding="async" />
+            <h4>Roberto Lagos</h4>
+            <p>Asesor laico</p>
+          </article>
+          <article class="team-card">
+            <img class="team-card__photo" src={images.teamKaren} alt="Karen" width="112" height="112" loading="lazy" decoding="async" />
+            <h4>Karen</h4>
+            <p>Presidente</p>
+          </article>
+          <article class="team-card">
+            <img class="team-card__photo" src={images.teamFer} alt="Fer" width="112" height="112" loading="lazy" decoding="async" />
+            <h4>Fer</h4>
+            <p>Secretario</p>
+          </article>
+          <article class="team-card">
+            <img class="team-card__photo" src={images.teamBian} alt="Bian" width="112" height="112" loading="lazy" decoding="async" />
+            <h4>Bian</h4>
+            <p>Tesorera</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section cta-soft">
+      <div class="cta-soft__box">
+        <h2>¿Sientes el llamado a servir?</h2>
+        <p>Únete a nuestra familia y descubre cómo tu juventud puede transformar vidas a través del amor vicentino.</p>
+        <div class="cta-actions">
+          <a class="btn-primary" href="/registro">¡Quiero Unirme!</a>
+          <a class="btn-outline-primary" href="/contacto">Contáctanos</a>
+        </div>
+      </div>
+    </section>
+
+</MainLayout>

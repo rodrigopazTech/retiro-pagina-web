@@ -1,0 +1,16 @@
+---
+import { whatsappUrl } from '../lib/whatsapp';
+import type { WhatsAppContext } from '../data/whatsapp';
+
+interface Props {
+  context?: WhatsAppContext;
+  label?: string;
+}
+
+const { context = 'retiro', label = 'Hablar por WhatsApp' } = Astro.props;
+---
+
+<a class="approved-whatsapp-button" href={whatsappUrl(context)} target="_blank" rel="noreferrer">
+  <span class="material-symbols-outlined">chat</span>
+  {label}
+</a>

@@ -1,0 +1,56 @@
+---
+import { navigation, site } from '../data/site';
+import { images } from '../data/assets';
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="Ir al inicio de Kairos">
+      <img src={images.logo} alt={site.fullName} />
+    </a>
+    <nav aria-label="Navegación principal">
+      {navigation.map((item) => (
+        <a class:list={[{ active: currentPath === item.href }]} href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+    <a class="button button-pill header-register" href="/registro">
+      <span class="registration-label-full">Registrarse al retiro</span>
+      <span class="registration-label-short">Registrarme</span>
+    </a>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Abrir menú">
+      <span class="mobile-menu-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="mobile-menu-toggle__label">Menú</span>
+    </button>
+  </div>
+  <nav id="mobile-navigation" class="mobile-nav" aria-label="Navegación móvil" hidden>
+    {navigation.map((item) => (
+      <a class:list={[{ active: currentPath === item.href }]} href={item.href}>{item.label}</a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const menuButton = document.querySelector<HTMLButtonElement>('.mobile-menu-toggle');
+  const mobileNavigation = document.querySelector<HTMLElement>('#mobile-navigation');
+
+  if (menuButton && mobileNavigation) {
+    const closeMenu = () => {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Abrir menú');
+      mobileNavigation.hidden = true;
+    };
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+      mobileNavigation.hidden = isOpen;
+    });
+
+    mobileNavigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  }
+</script>

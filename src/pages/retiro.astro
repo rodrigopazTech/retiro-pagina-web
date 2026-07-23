@@ -1,0 +1,183 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import WhatsAppRetreatButton from '../components/WhatsAppRetreatButton.astro';
+import { images } from '../data/assets';
+import { whatsappUrl } from '../lib/whatsapp';
+---
+
+<MainLayout title="Retiro Juvenil Espiritual" description="Conoce los detalles del Retiro Juvenil Espiritual de Kairos." bodyClass="retreat-page">
+    <section class="retreat-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow retreat-eyebrow">Próximo Retiro</span>
+          <h1>Retiro Juvenil Espiritual</h1>
+          <p>Un fin de semana para desconectarte del ruido, encontrarte contigo mismo y fortalecer tu relación con Dios.</p>
+          <div class="hero-actions">
+            <a class="button" href="/registro"><span class="material-symbols-outlined">how_to_reg</span> Registrarme</a>
+            <a class="button button-teal" href={whatsappUrl('retiro')} target="_blank" rel="noreferrer"><span class="material-symbols-outlined">chat</span> Hablar por WhatsApp</a>
+          </div>
+        </div>
+        <div class="retreat-logo">
+          <img src={images.retreatLogo} alt="Logo Kairos Corazón Vicentino" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="container info-grid">
+        <article class="card card-accent map-card">
+          <span class="material-symbols-outlined icon">location_on</span>
+          <h3>Lugar del Encuentro</h3>
+          <p>Casa de Retiros Vicentinos, Xochimilco, Ciudad de México</p>
+          <div class="map" style={`background-image: url('${images.retreatPlace}')`}></div>
+        </article>
+        <div class="stat-grid">
+          <article class="stat-card wide gold">
+            <span class="material-symbols-outlined icon gold">calendar_month</span>
+            <div><p>Fecha</p><h3>Junio y Diciembre</h3></div>
+          </article>
+          <article class="stat-card">
+            <span class="material-symbols-outlined icon">groups</span>
+            <div><p>Edad</p><h3>18 a 30 años</h3></div>
+          </article>
+          <a class="stat-card" href={whatsappUrl('apoyo_economico')} target="_blank" rel="noreferrer" title="Consultar apoyos por WhatsApp">
+            <span class="material-symbols-outlined icon blue">payments</span>
+            <div><p>Aportación</p><h3>$1,000 MXN</h3></div>
+          </a>
+          <article class="stat-card wide navy">
+            <span class="material-symbols-outlined icon blue">person_add</span>
+            <div><p>Cupo</p><h3>60 espacios</h3></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section">
+      <div class="approved-container">
+        <div class="approved-title">
+          <h2>¿Qué incluye tu inversión?</h2>
+          <p>Todo lo necesario para que solo te preocupes por tu encuentro.</p>
+        </div>
+        <div class="include-grid retreat-include-grid">
+          <article class="include-card include-card--wide">
+            <div class="value-card__icon bg-tertiary-fixed text-tertiary"><span class="material-symbols-outlined text-4xl">restaurant</span></div>
+            <div><h4 class="text-headline-md">Alimentación</h4><p class="text-on-surface-variant">Pensión completa durante todo el retiro. Menús balanceados pensados para tu energía.</p></div>
+          </article>
+          <article class="include-card include-card--gold">
+            <div class="value-card__icon bg-secondary-fixed text-secondary"><span class="material-symbols-outlined text-3xl">hotel</span></div>
+            <h4 class="text-headline-md">Alojamiento</h4>
+            <p class="text-on-surface-variant">Habitaciones compartidas cómodas y seguras.</p>
+          </article>
+          <article class="include-card include-card--primary">
+            <div class="value-card__icon bg-primary-fixed text-primary"><span class="material-symbols-outlined text-3xl">menu_book</span></div>
+            <h4 class="text-headline-md">Materiales</h4>
+            <p>Guías, cuadernos y materiales dinámicos para cada sesión.</p>
+          </article>
+          <article class="include-card include-card--wide bg-surface-variant">
+            <div class="value-card__icon bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-3xl">celebration</span></div>
+            <div><h4 class="text-headline-md">Actividades</h4><p class="text-on-surface-variant">Talleres, dinámicas y momentos de oración diseñados para jóvenes.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section activity-section">
+      <div class="approved-container">
+        <h2 class="text-headline-lg text-center mb-16">Nuestras Actividades</h2>
+        <p class="carousel-hint">Desliza para ver más</p>
+        <div class="activity-grid mobile-carousel" role="region" aria-label="Actividades del retiro">
+          <article class="activity-card"><span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4">podcasts</span><h4>Conferencias</h4><p>Pláticas inspiradoras con un enfoque joven y vicentino.</p></article>
+          <article class="activity-card"><span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4">volunteer_activism</span><h4>Oración</h4><p>Momentos de silencio, adoración y reflexión profunda.</p></article>
+          <article class="activity-card"><span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4">diversity_3</span><h4>Dinámicas</h4><p>Juegos y actividades grupales para fortalecer los lazos de comunidad.</p></article>
+          <article class="activity-card"><span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4">hiking</span><h4>Actividades Recreativas</h4><p>Tiempo libre y convivencia para recargar energías.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section packing-section">
+      <div class="packing-box">
+        <div class="approved-title">
+          <h2>¿Qué llevar?</h2>
+          <p>Prepara tu maleta con lo indispensable para vivir esta experiencia al máximo.</p>
+        </div>
+        <div class="packing-grid">
+          <div>
+            <h4 class="text-headline-md text-primary mb-4"><span class="material-symbols-outlined text-secondary">auto_stories</span> Para tu fe</h4>
+            <ul class="packing-list">
+              <li><span class="material-symbols-outlined text-secondary">check_box</span>Biblia</li>
+            </ul>
+            <h4 class="text-headline-md text-primary mb-4" style="margin-top: 32px;"><span class="material-symbols-outlined text-primary">checkroom</span> Ropa</h4>
+            <ul class="packing-list">
+              <li><span class="material-symbols-outlined text-primary">check_box</span>4 cambios de ropa cómoda</li>
+              <li><span class="material-symbols-outlined text-primary">check_box</span>Ropa para dormir</li>
+              <li><span class="material-symbols-outlined text-primary">check_box</span>Sudadera/chamarra</li>
+              <li><span class="material-symbols-outlined text-primary">check_box</span>Tenis cómodos + sandalias</li>
+              <li><span class="material-symbols-outlined text-primary">check_box</span>Botella de agua reutilizable</li>
+            </ul>
+          </div>
+          <div class="tonal-card p-8 rounded-2xl">
+            <h4 class="text-headline-md text-primary mb-6"><span class="material-symbols-outlined text-on-tertiary-container">soap</span> Aseo personal</h4>
+            <ul class="packing-list">
+              <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Cepillo y pasta de dientes</li>
+              <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Jabón, shampoo y toalla</li>
+              <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Desodorante y crema</li>
+              <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Medicamentos personales</li>
+              <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Lo indispensable de aseo personal</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section">
+      <div class="approved-container">
+        <h2 class="text-headline-lg text-primary text-center mb-16">Experiencias de otros jóvenes</h2>
+        <div class="testimonial-grid mobile-carousel" role="region" aria-label="Testimonios de participantes">
+          <article class="retreat-testimonial-card">
+            <span class="material-symbols-outlined quote-mark" aria-hidden="true">format_quote</span>
+            <p class="italic text-on-surface-variant quote">"Fue el momento exacto en que necesitaba parar. Encontré amigos que ahora son familia y redescubrí mi fe de una forma real."</p>
+            <div class="retreat-testimonial-author testimonial-author">
+              <img src={images.testimonialGreeting} alt="Mariana G." loading="lazy" decoding="async" />
+              <div><strong class="text-primary">Mariana G.</strong><span>Participante 2023</span></div>
+            </div>
+          </article>
+          <article class="retreat-testimonial-card">
+            <span class="material-symbols-outlined quote-mark" aria-hidden="true">format_quote</span>
+            <p class="italic text-on-surface-variant quote">"Llegué con muchas dudas y me fui con una paz que no puedo explicar. Kairos realmente cambió mi perspectiva sobre el servicio."</p>
+            <div class="retreat-testimonial-author testimonial-author">
+              <img src={images.galleryYoungMen} alt="Rodrigo S." loading="lazy" decoding="async" />
+              <div><strong class="text-primary">Rodrigo S.</strong><span>Participante 2024</span></div>
+            </div>
+          </article>
+          <article class="retreat-testimonial-card">
+            <span class="material-symbols-outlined quote-mark" aria-hidden="true">format_quote</span>
+            <p class="italic text-on-surface-variant quote">"La mejor inversión que he hecho para mi salud mental y espiritual. Las dinámicas son increíbles."</p>
+            <div class="retreat-testimonial-author testimonial-author">
+              <img src={images.testimonialFriends} alt="Ana Lucía M." loading="lazy" decoding="async" />
+              <div><strong class="text-primary">Ana Lucía M.</strong><span>Participante 2023</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section bg-surface-container-low">
+      <div class="faq-list">
+        <h2 class="text-headline-lg text-primary text-center mb-12">Preguntas Frecuentes</h2>
+        <details><summary>¿Cuáles son los horarios?</summary><p class="text-on-surface-variant">Iniciamos el viernes a las 6:00 PM y finalizamos el domingo con la misa de 2:00 PM.</p></details>
+        <details open><summary>¿Tengo que pertenecer a algún grupo?</summary><p class="text-on-surface-variant">No es necesario. El retiro está abierto a todos los jóvenes de 18 a 30 años que busquen un encuentro personal.</p></details>
+        <details><summary>¿Quién dará seguimiento a los inscritos?</summary><p class="text-on-surface-variant">El equipo de logística, posteriormente será todo el equipo de trabajo.</p></details>
+      </div>
+    </section>
+
+    <section class="approved-section retreat-final">
+      <div class="approved-container">
+        <h2>¿Estás listo para vivir tu Kairos?</h2>
+        <p>Los lugares se agotan rápido. Asegura tu lugar hoy mismo y comienza esta gran aventura de fe.</p>
+        <div class="cta-actions">
+          <a class="btn-primary" href="/registro"><span class="material-symbols-outlined">how_to_reg</span> Registrarme Ahora</a>
+          <WhatsAppRetreatButton context="retiro" />
+        </div>
+      </div>
+    </section>
+</MainLayout>

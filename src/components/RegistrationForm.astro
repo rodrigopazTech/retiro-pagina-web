@@ -1,0 +1,69 @@
+---
+---
+
+<section class="registration-card">
+  <form id="registration-form">
+    <h2 class="registration-section-title">Tus datos</h2>
+    <div class="registration-form-grid">
+      <div class="registration-field"><label for="nombre">Nombre completo *</label><input id="nombre" name="nombre" required autocomplete="name" placeholder="Escribe tu nombre completo" /></div>
+      <div class="registration-field"><label for="whatsapp">Número de celular (WhatsApp) *</label><input id="whatsapp" name="whatsapp" type="tel" required autocomplete="tel" placeholder="+52 ..." /></div>
+      <div class="registration-field"><label for="edad">Edad *</label><input id="edad" name="edad" type="number" min="18" max="99" required placeholder="18" /></div>
+      <div class="registration-field"><label for="direccion">Dirección *</label><input id="direccion" name="direccion" required autocomplete="street-address" placeholder="Calle, número, colonia y ciudad" /></div>
+    </div>
+    <div class="registration-emergency">
+      <h3>Información médica</h3>
+      <div class="registration-form-grid">
+        <div class="registration-field registration-field--full"><label for="enfermedad">¿Tienes alguna enfermedad? ¿Cuál? *</label><textarea id="enfermedad" name="enfermedad" required rows="3" placeholder="Ninguna / Describir..."></textarea></div>
+        <div class="registration-field"><label for="medicamento">¿Tomas algún medicamento? ¿Cuál? *</label><textarea id="medicamento" name="medicamento" required rows="3"></textarea></div>
+        <div class="registration-field"><label for="alergias">¿Tienes alergias? ¿A cuáles? *</label><textarea id="alergias" name="alergias" required rows="3"></textarea></div>
+      </div>
+    </div>
+    <div class="registration-emergency">
+      <h3>Contacto de emergencia</h3>
+      <div class="registration-form-grid">
+        <div class="registration-field"><label for="contactoEmergenciaNombre1">Nombre completo del contacto 1 *</label><input id="contactoEmergenciaNombre1" name="contactoEmergenciaNombre1" required autocomplete="off" /></div>
+        <div class="registration-field"><label for="contactoEmergenciaTelefono1">Teléfono del contacto 1 *</label><input id="contactoEmergenciaTelefono1" name="contactoEmergenciaTelefono1" type="tel" required autocomplete="off" /></div>
+        <div class="registration-field"><label for="contactoEmergenciaParentesco1">Parentesco del contacto 1 *</label><input id="contactoEmergenciaParentesco1" name="contactoEmergenciaParentesco1" required autocomplete="off" /></div>
+        <div class="registration-field"><label for="contactoEmergenciaNombre2">Nombre completo del contacto 2 <span class="registration-optional">(opcional)</span></label><input id="contactoEmergenciaNombre2" name="contactoEmergenciaNombre2" autocomplete="off" /></div>
+        <div class="registration-field"><label for="contactoEmergenciaTelefono2">Teléfono del contacto 2 <span class="registration-optional">(opcional)</span></label><input id="contactoEmergenciaTelefono2" name="contactoEmergenciaTelefono2" type="tel" autocomplete="off" /></div>
+        <div class="registration-field"><label for="contactoEmergenciaParentesco2">Parentesco del contacto 2 <span class="registration-optional">(opcional)</span></label><input id="contactoEmergenciaParentesco2" name="contactoEmergenciaParentesco2" autocomplete="off" /></div>
+      </div>
+    </div>
+    <div class="registration-field registration-field--checkbox"><label><input type="checkbox" name="consentimiento" required /> Acepto que el equipo de Kairos use estos datos para dar seguimiento a mi registro. *</label></div>
+    <button class="btn-primary" type="submit">Enviar registro <span class="material-symbols-outlined">send</span></button>
+    <p class="registration-note">Cualquier duda puedes comunicarte al número que aparece en la página.<br /><br />Recuerda que la parte económica no será un impedimento para que puedas vivir esta experiencia.</p>
+    <p id="form-status" class="registration-status" hidden role="status"></p>
+  </form>
+</section>
+
+<script>
+  import { site } from '../data/site';
+  import { whatsappUrl } from '../lib/whatsapp';
+
+  const form = document.querySelector<HTMLFormElement>('#registration-form');
+  const status = document.querySelector<HTMLElement>('#form-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form || !status) return;
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+    button?.setAttribute('disabled', 'true');
+      if (button) button.textContent = 'Enviando...';
+    try {
+      if (site.sheetsEndpoint) {
+        await fetch(site.sheetsEndpoint, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ ...data, origen: 'registro', fecha: new Date().toISOString() }) });
+      }
+      status.hidden = false;
+      status.textContent = site.sheetsEndpoint ? '¡Gracias por registrarte! Hemos recibido tu información correctamente. En breve nos pondremos en contacto contigo vía WhatsApp para continuar el proceso.' : 'El formulario está listo. Configura la URL de Google Apps Script para activar el envío.';
+      if (site.sheetsEndpoint) window.open(whatsappUrl('registro', { Nombre: data.nombre, WhatsApp: data.whatsapp, Edad: data.edad }), '_blank', 'noopener,noreferrer');
+      form.reset();
+    } catch {
+      status.hidden = false;
+      status.textContent = 'No pudimos enviar el registro. Intenta de nuevo o escríbenos por WhatsApp.';
+    } finally {
+      button?.removeAttribute('disabled');
+      if (button) button.textContent = 'Enviar registro';
+    }
+  });
+</script>

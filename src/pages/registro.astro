@@ -1,0 +1,20 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import RegistrationForm from '../components/RegistrationForm.astro';
+import { images } from '../data/assets';
+---
+
+<MainLayout title="Registro | Retiros Juveniles" description="Completa tu registro para asegurar tu lugar en el retiro espiritual de Kairos." bodyClass="registration-page">
+  <main class="registration-shell">
+    <div class="registration-bg">
+      <div class="registration-bg__image" style={`background-image: url('${images.registrationHero}')`}></div>
+    </div>
+    <div class="registration-content">
+      <div>
+        <h1>Regístrate al retiro</h1>
+        <p>Completa tus datos para reservar tu lugar. Nos pondremos en contacto contigo por WhatsApp.</p>
+      </div>
+      <RegistrationForm />
+    </div>
+  </main>
+</MainLayout>

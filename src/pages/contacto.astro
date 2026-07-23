@@ -1,0 +1,40 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { whatsappUrl } from '../lib/whatsapp';
+---
+
+<MainLayout title="Contacto - Kairos Corazón Vicentino" description="Página de contacto de Kairos Corazón Vicentino. Estamos aquí para acompañarte." bodyClass="contact-page">
+  <section class="section">
+    <div class="container">
+      <SectionTitle title="Estamos aquí para escucharte" text="Elige la opción que mejor se adapte a lo que necesitas y te responderemos de inmediato." align="center" />
+      
+      <div class="bento-grid" style="margin-top: 40px;">
+        <a class="bento-card large" href={whatsappUrl('contacto')} target="_blank" rel="noreferrer">
+          <span class="material-symbols-outlined icon blue">chat</span>
+          <h3>Dudas generales sobre Kairos</h3>
+          <p>Escríbenos directamente por WhatsApp para resolver cualquier consulta sobre el movimiento.</p>
+          <span class="material-symbols-outlined bento-card__arrow" aria-hidden="true">arrow_forward</span>
+        </a>
+        <a class="bento-card large" href={whatsappUrl('padres')} target="_blank" rel="noreferrer">
+          <span class="material-symbols-outlined icon">family_restroom</span>
+          <h3>Atención para Padres de Familia</h3>
+          <p>Información personalizada sobre la seguridad, logística y cuidado de los jóvenes en los retiros.</p>
+          <span class="material-symbols-outlined bento-card__arrow" aria-hidden="true">arrow_forward</span>
+        </a>
+        <a class="bento-card small" href={whatsappUrl('vocacional')} target="_blank" rel="noreferrer">
+          <span class="material-symbols-outlined icon gold">auto_awesome</span>
+          <h3>Acompañamiento Vocacional</h3>
+          <p>Habla en privado con nuestro equipo espiritual.</p>
+          <span class="material-symbols-outlined bento-card__arrow" aria-hidden="true">arrow_forward</span>
+        </a>
+        <a class="bento-card small" href="/registro">
+          <span class="material-symbols-outlined icon gold">how_to_reg</span>
+          <h3>Regístrate al Retiro</h3>
+          <p>Reserva tu lugar de forma directa en línea.</p>
+          <span class="material-symbols-outlined bento-card__arrow" aria-hidden="true">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
