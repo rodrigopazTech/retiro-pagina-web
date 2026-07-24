@@ -1,6 +1,6 @@
 export const site = {
-  name: 'Kairos',
-  fullName: 'Kairos Corazón Vicentino',
+  name: 'Kairós',
+  fullName: 'Kairós Corazón Vicentino',
   tagline: 'Un espacio para encontrarte, crecer y vivir tu fe.',
   description:
     'Movimiento juvenil vicentino para caminar juntos en comunidad, espiritualidad y servicio.',

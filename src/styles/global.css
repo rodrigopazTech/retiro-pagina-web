@@ -547,15 +547,15 @@ h4 { font-size: 18px; }
 .timeline h4 { margin:0 0 8px; color:var(--primary); font-size:18px; line-height:28px; font-weight:700; }
 .timeline p { margin:0; color:var(--on-surface-variant); }
 .value-grid { display:grid; grid-template-columns:1fr; gap:24px; }
-.team-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px; }
+.team-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 12px; }
 .value-card { padding:48px; border-radius:12px; text-align:center; background:var(--surface-lowest); box-shadow:0 4px 12px rgba(0,22,59,.04); }
-.team-card { display:flex; min-height:0; flex-direction:column; align-items:center; justify-content:center; padding:20px 14px; border-radius:14px; background:var(--surface-lowest); box-shadow:0 4px 12px rgba(0,22,59,.04); overflow:hidden; }
-.team-card__photo { width:88px; height:88px; margin:0 auto 12px; border-radius:999px; object-fit:cover; border:3px solid rgba(253,191,38,.28); box-shadow:0 6px 16px rgba(0,22,59,.08); }
+.team-card { display:flex; min-height:0; flex-direction:column; align-items:center; justify-content:center; padding:18px 12px; border-radius:14px; background:var(--surface-lowest); box-shadow:0 4px 12px rgba(0,22,59,.04); overflow:hidden; width:100%; }
+.team-card__photo { width:76px; height:76px; max-width:76px; aspect-ratio:1/1; flex-shrink:0; margin:0 auto 10px; border-radius:999px; object-fit:cover; border:3px solid rgba(253,191,38,.28); box-shadow:0 6px 16px rgba(0,22,59,.08); }
 .value-card__icon { width:64px; height:64px; margin:0 auto 24px; border-radius:999px; display:flex; align-items:center; justify-content:center; }
 .value-card h3 { margin:0 0 12px; color:var(--primary); font-size:18px; line-height:28px; font-weight:700; }
-.team-card h4 { margin:0 0 4px; color:var(--primary); font-size:15px; line-height:20px; font-weight:700; text-align:center; }
+.team-card h4 { margin:0 0 4px; color:var(--primary); font-size:15px; line-height:20px; font-weight:700; text-align:center; word-break:break-word; }
 .value-card p { margin:0; color:var(--on-surface-variant); font-size:16px; line-height:24px; }
-.team-card p { margin:0; color:var(--on-surface-variant); font-size:13px; line-height:17px; text-align:center; }
+.team-card p { margin:0; color:var(--on-surface-variant); font-size:12px; line-height:16px; text-align:center; }
 .vicentine-section { background:var(--primary); color:#fff; }
 .vicentine-section h2 { color:#fff; font-size:32px; line-height:38px; margin:0 0 24px; }
 .vicentine-section p,.vicentine-section li { color:rgba(255,255,255,.82); font-size:18px; line-height:28px; }
@@ -712,7 +712,7 @@ h4 { font-size: 18px; }
 
 @media (min-width:640px) {
   .cta-actions { flex-direction:row; }
-  .team-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .team-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
 
 @media (min-width:768px) {

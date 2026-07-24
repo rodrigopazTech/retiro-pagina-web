@@ -25,7 +25,7 @@ export const whatsappConfig: Record<WhatsAppContext, WhatsAppMessageConfig> = {
   general: {
     label: 'Información General',
     location: 'Botón Flotante Global / CTA Final (Inicio)',
-    message: 'Hola, estoy navegando en la página de Kairos y quisiera recibir información general del movimiento.',
+    message: 'Hola, estoy navegando en la página de Kairós y quisiera recibir información general del movimiento.',
   },
   retiro: {
     label: 'Información de Retiro',
@@ -40,12 +40,12 @@ export const whatsappConfig: Record<WhatsAppContext, WhatsAppMessageConfig> = {
   contacto: {
     label: 'Dudas Generales',
     location: 'Bento Card 3 (Inicio) / Tarjeta en Página de Contacto',
-    message: 'Hola, tengo una consulta sobre Kairos Corazón Vicentino y me gustaría que me ayudaran a resolverla.',
+    message: 'Hola, tengo una consulta sobre Kairós Corazón Vicentino y me gustaría que me ayudaran a resolverla.',
   },
   vocacional: {
     label: 'Acompañamiento Vocacional',
     location: 'Bento Card 4 (Inicio) / Tarjeta en Página de Contacto',
-    message: 'Hola, estoy pasando por un proceso de inquietud vocacional y me gustaría recibir acompañamiento del equipo de Kairos.',
+    message: 'Hola, estoy pasando por un proceso de inquietud vocacional y me gustaría recibir acompañamiento del equipo de Kairós.',
   },
   padres: {
     label: 'Atención a Padres de Familia',
@@ -55,12 +55,12 @@ export const whatsappConfig: Record<WhatsAppContext, WhatsAppMessageConfig> = {
   integracion: {
     label: 'Integración al Movimiento',
     location: 'Bento Card 2 (Inicio)',
-    message: 'Hola, me interesa formar parte de la comunidad de Kairos Corazón Vicentino. ¿Cómo puedo integrarme a sus reuniones o actividades?',
+    message: 'Hola, me interesa formar parte de la comunidad de Kairós Corazón Vicentino. ¿Cómo puedo integrarme a sus reuniones o actividades?',
   },
   equipo: {
     label: 'Contacto con Coordinadores',
     location: 'Página Sobre el Movimiento (/movimiento)',
-    message: 'Hola, me gustaría ponerme en contacto con el equipo coordinador de Kairos Corazón Vicentino.',
+    message: 'Hola, me gustaría ponerme en contacto con el equipo coordinador de Kairós Corazón Vicentino.',
   },
   apoyo_economico: {
     label: 'Consulta de Apoyo Económico / Becas',
