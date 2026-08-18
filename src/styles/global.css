@@ -263,6 +263,20 @@ h4 { font-size: 18px; }
 .include-card--primary { background: var(--primary-container); color: var(--on-primary); flex-direction: column; align-items: flex-start; }
 .include-card--primary h4,.include-card--primary p { color:#fff; }
 .include-card.bg-surface-variant { background:var(--surface-highest); }
+.followup-proposal { display:grid; grid-template-columns:minmax(0, 1.08fr) minmax(420px, .92fr); gap:24px; margin-top:32px; }
+.followup-proposal__main { position:relative; min-height:320px; display:flex; flex-direction:column; justify-content:center; overflow:hidden; border-radius:16px; background:var(--primary); padding:42px; color:#fff; box-shadow:0 18px 44px rgba(0,22,59,.14); }
+.followup-proposal__main::after { content:""; position:absolute; right:-56px; bottom:-72px; width:220px; height:220px; border-radius:999px; background:rgba(125,245,248,.18); }
+.followup-proposal__kicker { position:relative; z-index:1; width:max-content; margin-bottom:18px; padding:7px 14px; border-radius:999px; background:rgba(253,191,38,.16); color:var(--secondary-fixed); font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.followup-proposal__main h3 { position:relative; z-index:1; max-width:680px; margin:0 0 16px; color:#fff; font-size:clamp(32px,3vw,44px); line-height:1.12; }
+.followup-proposal__main p { position:relative; z-index:1; max-width:680px; color:rgba(255,255,255,.82); font-size:18px; line-height:1.65; }
+.followup-proposal__meta { position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+.followup-proposal__meta span { display:inline-flex; align-items:center; gap:8px; min-height:40px; padding:9px 14px; border-radius:999px; background:rgba(255,255,255,.1); color:#fff; font-size:13px; font-weight:700; }
+.followup-proposal__meta .material-symbols-outlined { color:var(--secondary-fixed); font-size:20px; }
+.followup-proposal__cards { display:grid; grid-template-columns:1fr; gap:14px; }
+.followup-proposal__cards article { display:grid; grid-template-columns:58px minmax(0,1fr); grid-template-areas:"icon title" "icon copy"; align-items:center; min-height:96px; gap:4px 16px; border:1px solid var(--outline-variant); border-radius:16px; background:#fff; padding:22px; box-shadow:var(--shadow); }
+.followup-proposal__cards .material-symbols-outlined { grid-area:icon; display:flex; align-items:center; justify-content:center; width:58px; height:58px; border-radius:999px; background:var(--secondary-fixed); color:var(--secondary); font-size:28px; }
+.followup-proposal__cards h4 { grid-area:title; margin:0; color:var(--primary); font-size:22px; line-height:1.2; }
+.followup-proposal__cards p { grid-area:copy; margin:0; color:var(--on-surface-variant); font-size:15px; line-height:1.5; }
 .activity-section { background: var(--primary); color: var(--on-primary); }
 .activity-section h2,.activity-section h4 { color: #fff; }
 .activity-grid { display:grid; grid-template-columns:1fr; gap:24px; }
@@ -583,6 +597,8 @@ h4 { font-size: 18px; }
 .testimonial-author span { color:var(--on-surface-variant); font-size:12px; }
 .gallery-section { padding-top: 72px; padding-bottom: 78px; background: var(--surface); }
 .gallery-section .section-title { margin-bottom: 40px; }
+.seminary-gallery-section { background: var(--surface-lowest); }
+.seminary-gallery-section .approved-title { margin-bottom: 40px; }
 .experience-gallery { display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:180px 300px; gap:16px; max-width: 1080px; margin-inline:auto; }
 .gallery-item { overflow:hidden; border-radius:16px; background:var(--surface-low); }
 .gallery-item-large { grid-column:span 2; grid-row:span 2; }
@@ -831,6 +847,8 @@ h4 { font-size: 18px; }
   .include-card--primary,
   .include-card.bg-surface-variant,
   .include-card--wide:first-child { grid-column:auto; grid-row:auto; }
+  .followup-proposal { grid-template-columns:1fr; }
+  .followup-proposal__main { min-height:0; }
   .packing-box { padding:32px; }
 }
 
@@ -1076,6 +1094,16 @@ h4 { font-size: 18px; }
   .retreat-page .include-card > p { grid-column: 2; margin: 0; font-size: 15px; line-height: 1.5; }
   .retreat-page .include-card > div:not(.value-card__icon) h4 { margin: 0 0 4px; font-size: 20px; line-height: 26px; }
   .retreat-page .include-card > div:not(.value-card__icon) p { margin: 0; font-size: 15px; line-height: 1.5; }
+  .retreat-page .followup-proposal { margin-top: 22px; gap: 12px; }
+  .retreat-page .followup-proposal__main { padding: 24px 20px; border-radius: 16px; }
+  .retreat-page .followup-proposal__main h3 { font-size: 26px; line-height: 32px; }
+  .retreat-page .followup-proposal__main p { font-size: 15px; line-height: 1.55; }
+  .retreat-page .followup-proposal__meta { margin-top: 20px; }
+  .retreat-page .followup-proposal__cards { gap: 10px; }
+  .retreat-page .followup-proposal__cards article { grid-template-columns: 46px minmax(0, 1fr); min-height: 0; padding: 16px; gap: 4px 12px; border-radius: 14px; }
+  .retreat-page .followup-proposal__cards .material-symbols-outlined { width: 46px; height: 46px; font-size: 23px; }
+  .retreat-page .followup-proposal__cards h4 { font-size: 18px; line-height: 23px; }
+  .retreat-page .followup-proposal__cards p { font-size: 14px; line-height: 1.45; }
 
   .retreat-page .activity-section { padding-top: 48px; padding-bottom: 48px; }
   .retreat-page .activity-section h2 { margin-bottom: 8px; }

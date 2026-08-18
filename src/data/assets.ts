@@ -8,7 +8,15 @@ export const images = {
   retreatLogo:
     '/logotipo-1024.webp',
   retreatPlace:
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuDe-I5Fq_m8NxZz0djAoi5hh1DdvrBpTpTVfpDWdO8PHls9KFZ0rB6Y7b1Ti0l_wPaXXw66yE0rATYMCpYH8Kcj_KPDC0fA9HvjsnhRmPQIaEh-Nulw9dlemRfevhgfqaXX2wm9M-xl37fElo70YL3T05cFVJJkYGhNc_IcG6jKIYugtC1ixmVvt1ib2u0xHOcpI8uuqxHjB4DdfvmGXfwKB2YgF3T214mnYEah4y__Ods8F1a7chKEeg',
+    '/Fotos/seminario_vicentino_fachada_1.webp',
+  seminaryFacade:
+    '/Fotos/seminario_vicentino_fachada_1.webp',
+  seminaryFacadeAlt:
+    '/Fotos/seminario_vicentino_fachada_2.webp',
+  seminaryPatio:
+    '/Fotos/seminario_vicentino_patio.webp',
+  seminaryChapel:
+    '/Fotos/seminario_vicentino_capilla_interior.webp',
   movementHero:
     '/Fotos/optimizadas/comunidad-retiro-grupal-1600.webp',
   movementMeeting:

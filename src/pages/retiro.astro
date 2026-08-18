@@ -34,7 +34,7 @@ import { whatsappUrl } from '../lib/whatsapp';
         <div class="stat-grid">
           <article class="stat-card wide gold">
             <span class="material-symbols-outlined icon gold">calendar_month</span>
-            <div><p>Fecha</p><h3>Junio y Diciembre</h3></div>
+            <div><p>Fecha</p><h3>19, 20 y 21 de diciembre</h3></div>
           </article>
           <article class="stat-card">
             <span class="material-symbols-outlined icon">groups</span>
@@ -46,8 +46,23 @@ import { whatsappUrl } from '../lib/whatsapp';
           </a>
           <article class="stat-card wide navy">
             <span class="material-symbols-outlined icon blue">person_add</span>
-            <div><p>Cupo</p><h3>60 espacios</h3></div>
+            <div><p>Cupo</p><h3>50 espacios</h3></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approved-section seminary-gallery-section">
+      <div class="approved-container">
+        <div class="approved-title">
+          <h2>Conoce el seminario</h2>
+          <p>Algunas vistas reales del lugar donde se vive el retiro.</p>
+        </div>
+        <div class="experience-gallery mobile-carousel" role="region" aria-label="Galería del seminario">
+          <div class="gallery-item gallery-item-large"><img src={images.seminaryFacade} alt="Fachada principal del Seminario Vicentino" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item"><img src={images.seminaryFacadeAlt} alt="Vista exterior del Seminario Vicentino" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item"><img src={images.seminaryPatio} alt="Patio del Seminario Vicentino" loading="lazy" decoding="async" /></div>
+          <div class="gallery-item gallery-item-wide"><img src={images.seminaryChapel} alt="Capilla interior del Seminario Vicentino" loading="lazy" decoding="async" /></div>
         </div>
       </div>
     </section>
@@ -94,6 +109,43 @@ import { whatsappUrl } from '../lib/whatsapp';
       </div>
     </section>
 
+    <section class="approved-section bg-surface-container-low">
+      <div class="approved-container">
+        <div class="approved-title">
+          <h2>Seguimiento después del retiro</h2>
+          <p>La experiencia continúa con acompañamiento para seguir creciendo en comunidad.</p>
+        </div>
+        <div class="followup-proposal" aria-label="Propuesta alternativa para seguimiento después del retiro">
+          <div class="followup-proposal__main">
+            <span class="followup-proposal__kicker">Seguimiento semanal</span>
+            <h3>Domingos para seguir caminando</h3>
+            <p>Un encuentro semanal en línea para mantener viva la experiencia del retiro, compartir avances y acompañarnos como comunidad.</p>
+            <div class="followup-proposal__meta">
+              <span><span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>Domingos</span>
+              <span><span class="material-symbols-outlined" aria-hidden="true">videocam</span>En línea</span>
+            </div>
+          </div>
+          <div class="followup-proposal__cards">
+            <article>
+              <span class="material-symbols-outlined" aria-hidden="true">forum</span>
+              <h4>Compartir</h4>
+              <p>Un espacio para expresar cómo vas después del retiro.</p>
+            </article>
+            <article>
+              <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+              <h4>Acompañamiento</h4>
+              <p>Seguimiento cercano para sostener tu proceso personal.</p>
+            </article>
+            <article>
+              <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+              <h4>Comunidad</h4>
+              <p>Conexión con otros jóvenes que siguen el mismo camino.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="approved-section packing-section">
       <div class="packing-box">
         <div class="approved-title">
@@ -108,7 +160,7 @@ import { whatsappUrl } from '../lib/whatsapp';
             </ul>
             <h4 class="text-headline-md text-primary mb-4" style="margin-top: 32px;"><span class="material-symbols-outlined text-primary">checkroom</span> Ropa</h4>
             <ul class="packing-list">
-              <li><span class="material-symbols-outlined text-primary">check_box</span>4 cambios de ropa cómoda</li>
+              <li><span class="material-symbols-outlined text-primary">check_box</span>3 cambios de ropa cómoda</li>
               <li><span class="material-symbols-outlined text-primary">check_box</span>Ropa para dormir</li>
               <li><span class="material-symbols-outlined text-primary">check_box</span>Sudadera/chamarra</li>
               <li><span class="material-symbols-outlined text-primary">check_box</span>Tenis cómodos + sandalias</li>
@@ -119,7 +171,8 @@ import { whatsappUrl } from '../lib/whatsapp';
             <h4 class="text-headline-md text-primary mb-6"><span class="material-symbols-outlined text-on-tertiary-container">soap</span> Aseo personal</h4>
             <ul class="packing-list">
               <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Cepillo y pasta de dientes</li>
-              <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Jabón, shampoo y toalla</li>
+              <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Jabón y shampoo</li>
+              <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Toalla</li>
               <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Desodorante y crema</li>
               <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Medicamentos personales</li>
               <li><span class="material-symbols-outlined text-on-tertiary-container">done_all</span>Lo indispensable de aseo personal</li>
@@ -166,6 +219,7 @@ import { whatsappUrl } from '../lib/whatsapp';
         <h2 class="text-headline-lg text-primary text-center mb-12">Preguntas Frecuentes</h2>
         <details><summary>¿Cuáles son los horarios?</summary><p class="text-on-surface-variant">Iniciamos el viernes a las 6:00 PM y finalizamos el domingo con la misa de 2:00 PM.</p></details>
         <details open><summary>¿Tengo que pertenecer a algún grupo?</summary><p class="text-on-surface-variant">No es necesario. El retiro está abierto a todos los jóvenes de 18 a 30 años que busquen un encuentro personal.</p></details>
+        <details><summary>¿Qué sigue después del retiro?</summary><p class="text-on-surface-variant">Puedes asistir a una reunión semanal en línea todos los domingos para continuar el proceso de seguimiento y comunidad.</p></details>
         <details><summary>¿Quién dará seguimiento a los inscritos?</summary><p class="text-on-surface-variant">El equipo de logística, posteriormente será todo el equipo de trabajo.</p></details>
       </div>
     </section>
