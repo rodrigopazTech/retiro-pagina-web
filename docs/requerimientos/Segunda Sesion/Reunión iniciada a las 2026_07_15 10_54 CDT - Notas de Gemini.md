@@ -17,7 +17,7 @@ El sitio funcionará como una plataforma informativa sobre la identidad y carism
 Se incorporarán definiciones sobre el concepto Kairos, fechas de retiros históricos y un formulario de registro. La comunicación externa se centralizará mediante WhatsApp para optimizar la gestión.
 
 **Diseño y detalles finales**  
-Se aprobó el diseño orgánico y la estructura de la página de inicio. El costo de recuperación para el retiro se estableció en 1500\.
+Se aprobó el diseño orgánico y la estructura de la página de inicio. El costo de recuperación para el retiro se estableció en 1200\.
 
 ### **Próximos pasos**
 
@@ -57,7 +57,7 @@ Se aprobó el diseño orgánico y la estructura de la página de inicio. El cost
 
 * **Espiritualidad y fotografías del equipo**: Acordaron incluir una sección de espiritualidad y un espacio para el equipo. Rodrigo Cristobal Paz Jimenez solicitará las fotografías de Fernando, Sarate, Bian, el sacerdote y roberto Lagos, utilizando una imagen de WhatsApp de roberto Lagos para el perfil correspondiente ([00:18:32](#00:18:32)).
 
-* **Detalles logísticos y actividades del retiro**: Establecieron que el costo de recuperación para el retiro será de 1500\. Rodrigo Cristobal Paz Jimenez, con la aprobación de roberto Lagos, describirá las actividades del retiro utilizando términos como "charlas", "compartir", "dinámicas" y "juegos", manteniendo la claridad sin revelar detalles confidenciales ([00:19:40](#00:19:40)).
+* **Detalles logísticos y actividades del retiro**: Establecieron que el costo de recuperación para el retiro será de 1200\. Rodrigo Cristobal Paz Jimenez, con la aprobación de roberto Lagos, describirá las actividades del retiro utilizando términos como "charlas", "compartir", "dinámicas" y "juegos", manteniendo la claridad sin revelar detalles confidenciales ([00:19:40](#00:19:40)).
 
 * **Formulario de registro y seguimiento**: Definieron los campos necesarios para el formulario de registro: nombre completo, WhatsApp, fecha de nacimiento, dirección y contacto de dos familiares. Rodrigo Cristobal Paz Jimenez integrará el formulario de Google existente en la página y se encargará de redactar un mensaje de confirmación para los nuevos usuarios, completando así la estructura del sitio ([00:22:45](#00:22:45)).
 
@@ -741,7 +741,7 @@ jul 15, 2026
 
 **roberto Lagos:** tanto fue ponle costo de recuperación
 
-**Rodrigo Cristobal Paz Jimenez:** 1500\.
+**Rodrigo Cristobal Paz Jimenez:** 1200\.
 
 **roberto Lagos:** o lo que se ponen cosas religiosas.
 

@@ -3,7 +3,6 @@ import MainLayout from '../layouts/MainLayout.astro';
 import WhatsAppRetreatButton from '../components/WhatsAppRetreatButton.astro';
 import { images } from '../data/assets';
 import { whatsappUrl } from '../lib/whatsapp';
-export const prerender = true;
 ---
 
 <MainLayout title="Retiro Juvenil Espiritual" description="Conoce los detalles del Retiro Juvenil Espiritual de Kairós." bodyClass="retreat-page">
@@ -43,7 +42,7 @@ export const prerender = true;
           </article>
           <a class="stat-card" href={whatsappUrl('apoyo_economico')} target="_blank" rel="noreferrer" title="Consultar apoyos por WhatsApp">
             <span class="material-symbols-outlined icon blue">payments</span>
-            <div><p>Aportación</p><h3>$1,500 MXN</h3></div>
+            <div><p>Aportación</p><h3>$1,200 MXN</h3></div>
           </a>
           <article class="stat-card wide navy">
             <span class="material-symbols-outlined icon blue">person_add</span>
