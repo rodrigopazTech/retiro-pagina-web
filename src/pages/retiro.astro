@@ -3,6 +3,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import WhatsAppRetreatButton from '../components/WhatsAppRetreatButton.astro';
 import { images } from '../data/assets';
 import { whatsappUrl } from '../lib/whatsapp';
+export const prerender = true;
 ---
 
 <MainLayout title="Retiro Juvenil Espiritual" description="Conoce los detalles del Retiro Juvenil Espiritual de Kairós." bodyClass="retreat-page">
