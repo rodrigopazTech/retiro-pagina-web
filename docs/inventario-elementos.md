@@ -25,7 +25,7 @@ Para cambiar el texto que envía cualquier botón o tarjeta, solo debes abrir es
 | **`vocacional`** | Acompañamiento Vocacional | Bento Card 4 (`/`) / Tarjeta en `/contacto` | *"Hola, estoy pasando por un proceso de inquietud vocacional y me gustaría recibir acompañamiento del equipo de Kairos."* |
 | **`padres`** | Atención a Padres de Familia | Bento Card 5 (`/`) / Tarjeta en `/contacto` | *"Hola, soy padre/madre de familia y me gustaría recibir información sobre las actividades y seguridad del retiro para mi hijo(a)."* |
 | **`equipo`** | Contacto con Coordinadores | Página Sobre el Movimiento (`/movimiento`) | *"Hola, me gustaría ponerme en contacto con el equipo coordinador de Kairos Corazón Vicentino."* |
-| **`apoyo_economico`**| Apoyo Económico / Becas | Tarjeta de Aportación (`$1,000 MXN`) en `/retiro` | *"Hola, quisiera consultar sobre las opciones de apoyos para asistir al retiro (sé que la parte económica no es un impedimento)."* |
+| **`apoyo_economico`**| Apoyo Económico / Becas | Tarjeta de Aportación (`$1,500 MXN`) en `/retiro` | *"Hola, quisiera consultar sobre las opciones de apoyos para asistir al retiro (sé que la parte económica no es un impedimento)."* |
 | **`registro`** | Confirmación de Formulario | Envío de Formulario en `/registro` | *"Hola, acabo de realizar mi registro para el retiro juvenil a través de la página web.<br><br>Nombre: [Nombre]<br>WhatsApp: [Teléfono]<br>Edad: [Edad]"* |
 
 ---

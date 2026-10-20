@@ -31,7 +31,7 @@ Para nosotros, Kairos es ese momento en el que un joven se encuentra con Dios, c
 - Nombre: Retiro Juvenil Espiritual  
 - Fecha: Diciembre  
 - Lugar: Casa de Retiros Vicentinos, Xochimilco, Ciudad de México  
-- Costo de recuperación: $1,000 MXN  
+- Costo de recuperación: $1,500 MXN  
 - Edad: 18 a 30 años  
 
 ---
@@ -129,7 +129,7 @@ Es una experiencia que combina reflexión, comunidad y momentos significativos q
 - Lugar: Casa de Retiros Vicentinos, Xochimilco, Ciudad de México  
 - Duración: 3 días  
 - Edad: 18 a 30 años  
-- Costo de recuperación: $1,000 MXN  
+- Costo de recuperación: $1,500 MXN  
 
 ---
 

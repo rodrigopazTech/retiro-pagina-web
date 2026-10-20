@@ -1,0 +1,334 @@
+---
+import '../styles/launch-desk.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Launch Desk helps engineering teams convert rough product launch ideas into actionable release plans."
+    />
+    <link rel="icon" href="/favicon.svg" />
+    <title>Launch Desk</title>
+  </head>
+  <body class="launch-desk-page">
+    <main class="launch-shell">
+      <section class="launch-panel launch-input-panel" aria-labelledby="launch-title">
+        <div class="brand-row">
+          <div class="brand-mark" aria-hidden="true">LD</div>
+          <div>
+            <p class="kicker">Agentic release planning</p>
+            <h1 id="launch-title">Launch Desk</h1>
+          </div>
+        </div>
+
+        <p class="intro">
+          Turn an early launch sketch into a prioritized plan, risk register, owner checklist, launch copy, and pointed
+          follow-up questions.
+        </p>
+
+        <form id="launch-form" class="launch-form">
+          <label>
+            <span>Product brief</span>
+            <div class="dictation-field">
+              <textarea
+                id="productBrief"
+                name="productBrief"
+                rows="7"
+                required
+                placeholder="We are launching a workflow for enterprise admins to approve AI-generated content before publishing..."
+              ></textarea>
+              <button class="dictate-button" type="button" data-dictate-for="productBrief" aria-label="Dictate product brief">
+                Mic
+              </button>
+            </div>
+          </label>
+
+          <div class="form-grid">
+            <label>
+              <span>Audience</span>
+              <div class="dictation-field compact">
+                <input id="audience" name="audience" placeholder="Enterprise admins, customer success, platform engineers" />
+                <button class="dictate-button" type="button" data-dictate-for="audience" aria-label="Dictate audience">
+                  Mic
+                </button>
+              </div>
+            </label>
+            <label>
+              <span>Launch date</span>
+              <input name="launchDate" type="date" />
+            </label>
+          </div>
+
+          <label>
+            <span>Constraints</span>
+            <div class="dictation-field">
+              <textarea
+                id="constraints"
+                name="constraints"
+                rows="4"
+                placeholder="Security review, docs freeze, limited QA capacity, no weekend deploys"
+              ></textarea>
+              <button class="dictate-button" type="button" data-dictate-for="constraints" aria-label="Dictate constraints">
+                Mic
+              </button>
+            </div>
+          </label>
+
+          <label>
+            <span>Available assets</span>
+            <div class="dictation-field">
+              <textarea
+                id="assets"
+                name="assets"
+                rows="4"
+                placeholder="Beta notes, screenshots, demo recording, support FAQ, customer quotes"
+              ></textarea>
+              <button class="dictate-button" type="button" data-dictate-for="assets" aria-label="Dictate available assets">
+                Mic
+              </button>
+            </div>
+          </label>
+
+          <p id="dictation-status" class="dictation-status" aria-live="polite">
+            Dictation is ready in supported browsers.
+          </p>
+
+          <button class="run-button" type="submit">
+            <span class="button-icon" aria-hidden="true">→</span>
+            Build release plan
+          </button>
+        </form>
+      </section>
+
+      <section class="launch-panel launch-output-panel" aria-labelledby="output-title">
+        <div class="output-header">
+          <div>
+            <p class="kicker">Live agent stream</p>
+            <h2 id="output-title">Release plan</h2>
+          </div>
+          <div id="status-pill" class="status-pill">Idle</div>
+        </div>
+
+        <div class="signal-rail" aria-label="Agent progress">
+          <div class="signal-item active">
+            <span></span>
+            Intake
+          </div>
+          <div class="signal-item">
+            <span></span>
+            Tools
+          </div>
+          <div class="signal-item">
+            <span></span>
+            Draft
+          </div>
+        </div>
+
+        <div id="event-log" class="event-log" aria-live="polite">
+          <article class="event-card">
+            <strong>Ready for a brief.</strong>
+            <p>Launch Desk streams tool progress and model text as the plan is generated.</p>
+          </article>
+        </div>
+
+        <pre id="plan-output" class="plan-output">Your launch plan will appear here.</pre>
+      </section>
+    </main>
+
+    <script>
+      const form = document.querySelector('#launch-form') as HTMLFormElement;
+      const output = document.querySelector('#plan-output') as HTMLPreElement;
+      const log = document.querySelector('#event-log') as HTMLDivElement;
+      const statusPill = document.querySelector('#status-pill') as HTMLDivElement;
+      const signalItems = Array.from(document.querySelectorAll('.signal-item'));
+      const dictationStatus = document.querySelector('#dictation-status') as HTMLParagraphElement;
+      const dictateButtons = Array.from(document.querySelectorAll('.dictate-button')) as HTMLButtonElement[];
+      type BrowserSpeechRecognition = {
+        lang: string;
+        continuous: boolean;
+        interimResults: boolean;
+        onstart: (() => void) | null;
+        onresult: ((event: { resultIndex: number; results: { [index: number]: { transcript: string } }[] }) => void) | null;
+        onerror: ((event: { error: string }) => void) | null;
+        onend: (() => void) | null;
+        start: () => void;
+        stop: () => void;
+      };
+      type SpeechWindow = typeof window & {
+        SpeechRecognition?: new () => BrowserSpeechRecognition;
+        webkitSpeechRecognition?: new () => BrowserSpeechRecognition;
+      };
+      const SpeechRecognitionConstructor =
+        (window as SpeechWindow).SpeechRecognition || (window as SpeechWindow).webkitSpeechRecognition;
+      let activeRecognition: BrowserSpeechRecognition | null = null;
+      let activeButton: HTMLButtonElement | null = null;
+
+      function setStatus(text: string, stage = 0) {
+        statusPill.textContent = text;
+        signalItems.forEach((item, index) => item.classList.toggle('active', index <= stage));
+      }
+
+      function appendEvent(title: string, message: string, tone = 'neutral') {
+        const card = document.createElement('article');
+        card.className = `event-card ${tone}`;
+        card.innerHTML = `<strong></strong><p></p>`;
+        const titleNode = card.querySelector('strong') as HTMLElement;
+        const messageNode = card.querySelector('p') as HTMLElement;
+        titleNode.textContent = title;
+        messageNode.textContent = message;
+        log.prepend(card);
+      }
+
+      function insertDictation(target: HTMLInputElement | HTMLTextAreaElement, transcript: string) {
+        const start = target.selectionStart ?? target.value.length;
+        const end = target.selectionEnd ?? target.value.length;
+        const prefix = target.value.slice(0, start);
+        const suffix = target.value.slice(end);
+        const spacer = prefix && !prefix.endsWith(' ') && !transcript.startsWith(' ') ? ' ' : '';
+        target.value = `${prefix}${spacer}${transcript}${suffix}`;
+        const nextCursor = start + spacer.length + transcript.length;
+        target.focus();
+        target.setSelectionRange(nextCursor, nextCursor);
+      }
+
+      function stopDictation() {
+        activeRecognition?.stop();
+        activeRecognition = null;
+        activeButton?.classList.remove('listening');
+        activeButton = null;
+        dictationStatus.textContent = 'Dictation stopped.';
+      }
+
+      if (!SpeechRecognitionConstructor) {
+        dictationStatus.textContent = 'Dictation is not supported in this browser. Try Chrome or Edge on localhost.';
+        dictateButtons.forEach((button) => {
+          button.disabled = true;
+          button.title = 'Dictation is not supported in this browser.';
+        });
+      } else {
+        dictateButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const targetId = button.dataset.dictateFor;
+            const target = targetId ? (document.getElementById(targetId) as HTMLInputElement | HTMLTextAreaElement | null) : null;
+            if (!target) return;
+
+            if (activeButton === button) {
+              stopDictation();
+              return;
+            }
+
+            activeRecognition?.stop();
+            activeButton?.classList.remove('listening');
+
+            const recognition = new SpeechRecognitionConstructor();
+            recognition.lang = navigator.language || 'es-MX';
+            recognition.continuous = true;
+            recognition.interimResults = false;
+
+            recognition.onstart = () => {
+              activeRecognition = recognition;
+              activeButton = button;
+              button.classList.add('listening');
+              dictationStatus.textContent = `Listening for ${target.previousElementSibling?.textContent || 'this field'}...`;
+            };
+
+            recognition.onresult = (speechEvent) => {
+              let transcript = '';
+              for (let index = speechEvent.resultIndex; index < speechEvent.results.length; index += 1) {
+                transcript += speechEvent.results[index][0].transcript;
+              }
+              if (transcript.trim()) {
+                insertDictation(target, transcript.trim());
+                dictationStatus.textContent = 'Dictation added. Keep speaking or tap Mic again to stop.';
+              }
+            };
+
+            recognition.onerror = (speechError) => {
+              dictationStatus.textContent = `Dictation error: ${speechError.error}.`;
+            };
+
+            recognition.onend = () => {
+              button.classList.remove('listening');
+              if (activeRecognition === recognition) {
+                activeRecognition = null;
+                activeButton = null;
+              }
+            };
+
+            recognition.start();
+          });
+        });
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const payload = Object.fromEntries(formData.entries());
+
+        output.textContent = '';
+        log.innerHTML = '';
+        setStatus('Streaming', 0);
+        appendEvent('Request accepted', 'Sending the launch brief to the local agent endpoint.', 'good');
+
+        try {
+          const response = await fetch('/api/launch/stream', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.body) throw new Error('The response did not include a readable stream.');
+
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = '';
+
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop() || '';
+
+            for (const line of lines) {
+              if (!line.trim()) continue;
+              const streamEvent = JSON.parse(line) as {
+                type: 'progress' | 'tool' | 'delta' | 'final' | 'error';
+                name?: string;
+                message?: string;
+                text?: string;
+              };
+              if (streamEvent.type === 'progress') {
+                appendEvent('Progress', streamEvent.message || '');
+              }
+              if (streamEvent.type === 'tool') {
+                setStatus('Using tools', 1);
+                appendEvent(streamEvent.name || 'tool', streamEvent.message || '', 'tool');
+              }
+              if (streamEvent.type === 'delta') {
+                setStatus('Drafting', 2);
+                output.textContent += streamEvent.text || '';
+              }
+              if (streamEvent.type === 'final' && !output.textContent.trim()) {
+                output.textContent = streamEvent.text || '';
+              }
+              if (streamEvent.type === 'error') {
+                setStatus('Needs attention', 0);
+                appendEvent('Error', streamEvent.message || 'Unknown error', 'bad');
+              }
+            }
+          }
+
+          setStatus('Complete', 2);
+        } catch (error) {
+          setStatus('Needs attention', 0);
+          appendEvent('Request failed', error instanceof Error ? error.message : 'Unknown error', 'bad');
+        }
+      });
+    </script>
+  </body>
+</html>

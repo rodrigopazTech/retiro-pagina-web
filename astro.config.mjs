@@ -1,6 +1,10 @@
 import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
 
 export default defineConfig({
-  site: 'https://kairos.example.com',
-  output: 'static',
+  site: 'https://kairosvicentino.org',
+  output: 'server',
+  adapter: node({
+    mode: 'standalone',
+  }),
 });

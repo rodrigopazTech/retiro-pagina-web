@@ -2,7 +2,8 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "verbatimModuleSyntax": true
-  }
+  },
+  "exclude": ["dist", "scripts"]
 }

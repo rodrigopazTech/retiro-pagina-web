@@ -64,7 +64,7 @@ export const whatsappConfig: Record<WhatsAppContext, WhatsAppMessageConfig> = {
   },
   apoyo_economico: {
     label: 'Consulta de Apoyo Económico / Becas',
-    location: 'Tarjeta de Aportación ($1,000 MXN) en /retiro',
+    location: 'Tarjeta de Aportación ($1,500 MXN) en /retiro',
     message: 'Hola, quisiera consultar sobre las opciones de apoyos para asistir al retiro (sé que la parte económica no es un impedimento).',
   },
 };
